@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 15
+  username: <%= ENV["DATABASE_USERNAME"] %>
+  password: <%= ENV["DATABASE_PASSWORD"] %>
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+
+development:
+  <<: *default
+  host: "127.0.0.1"
+  database: trigram_dev
+
+test:
+  <<: *default
+  host: "127.0.0.1"
+  database: trigram_test
