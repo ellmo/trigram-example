@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+  pg:
+    image: "postgres:14.1"
+    environment:
+      - "POSTGRES_USER=${DATABASE_USERNAME}"
+      - "POSTGRES_PASSWORD=${DATABASE_PASSWORD}"
+    volumes:
+      - develop-pg:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  develop-pg: {}
