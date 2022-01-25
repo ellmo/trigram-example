@@ -23,7 +23,6 @@ group :development do
   gem "rubocop-rspec", require: false
   gem "spring"
   gem "web-console", ">= 4.1.0"
-  gem "rubocop", require: false
 end
 
 group :test do

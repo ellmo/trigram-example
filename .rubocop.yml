@@ -1,10 +1,50 @@
-# The behavior of RuboCop can be controlled via the .rubocop.yml
-# configuration file. It makes it possible to enable/disable
-# certain cops (checks) and to alter their behavior if they accept
-# any parameters. The file can be placed either in your home
-# directory or in some project directory.
-#
-# RuboCop will start looking for the configuration file in the directory
-# where the inspected file is and continue its way up to the root directory.
-#
-# See https://docs.rubocop.org/rubocop/configuration
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+#== CORE
+AllCops:
+  NewCops: enable
+  Exclude:
+    - "db/migrate/*"
+    - "db/schema.rb"
+    - "node_modules/**/*"
+    - "tmp/**/*"
+    - "vendor/**/*"
+    - ".git/**/*"
+    - "bin/bundle"
+
+#== RSPEC
+RSpec/NamedSubject:
+  Enabled: false
+RSpec/ContextWording:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Max: 5
+RSpec/NestedGroups:
+  Max: 6
+RSpec/ExampleLength:
+  Max: 12
+RSpec/MultipleMemoizedHelpers:
+  Enabled: false
+RSpec/LetSetup:
+  Exclude:
+    - "spec/api/**/*"
+RSpec/MessageSpies:
+  Enabled: false
+
+#== STYLE
+Style/BlockComments:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Lambda:
+  EnforcedStyle: literal
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+Style/SingleArgumentDig:
+  Enabled: false
